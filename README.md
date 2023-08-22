@@ -3,7 +3,7 @@
 This model is constructed to work on encoders constructed for a different task and was implemented on "Unimatch". 
 The model is made from deformable-DETR, but for 3D object detection
 3D-object detection and stereo disparity on stereo cameras
-Inference and testing of the model are done in the checks_preps.ipynb file
+
 ## Installation and prerequisites
 Note: Make sure you are in this current directory
 Adding Unimatch to the directory, cloning this repo and unimatch
@@ -75,7 +75,7 @@ Made changes to the deformable-DETR architecture to accomodate for 3D object det
 
 Made only a Decoder and used the intermediate layer outputs from Unimatch, in this method we will be reducing the computational over head
 
-The same decoder model can be used to train on Multi-View Images
+
 
 ## Getting Started
 
@@ -86,6 +86,8 @@ In cases of training the same architecture make changes to the 'cfg' variable in
     python main.py
 ```
 NOTE: the Hyper-parameters for this model are controlled using the cfg variable in main.py file, currently working in progress to convert that to a .yaml file just like the [MonoDETR](https://github.com/ZrrSkywalker/MonoDETR/tree/main) repo
+
+The model doesn't perform well for 3D object detection for using it parallel to unimatch, I got an AP3D of 9.87 for car on kitti evaluation dataset and the model seems to be underfitted. We can further try this technique on models built for other tasks like multi-view images
 
 ## Acknowlegment
 
